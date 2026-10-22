@@ -4,9 +4,7 @@
 
 PHP локально не обов’язковий. Пайплайн розрахований на PHP 8.2 у GitHub Actions.
 
-![PHP CI](https://github.com/OWNER/REPO/actions/workflows/php-ci.yml/badge.svg)
-
-Бейдж запрацює після створення репозиторію: заміни `OWNER/REPO` на свій шлях.
+![PHP CI](https://github.com/Danyleichuk-Vladyslav/ci-cd-lab/actions/workflows/php-ci.yml/badge.svg)
 
 ## Структура
 
@@ -45,20 +43,11 @@ vendor/bin/pint
 
 Секрет читається лише зі сховища GitHub (`secrets.MY_SUPER_SECRET_KEY`). У логах значення маскується. Якщо секрет не задано, крок завершується з помилкою. У код і в коміти його не кладуть.
 
-## Далі на GitHub
+## GitHub
 
-Репозиторій, коміти і push на цьому етапі не потрібні. Коли дійде черга GitHub, порядок такий:
+Pull request відкривається за шаблоном з `.github/PULL_REQUEST_TEMPLATE.md`. Секрет `MY_SUPER_SECRET_KEY` лежить в Actions Secrets, не в репозиторії. Для `main` діє branch protection. Виправлення стилю Pint йде в гілці `feature-cicd-pipeline`. Задача закривається рядком `Fixes #N` або `Resolves #N`.
 
-1. Створити репозиторій і відкрити PR `initialize-repository`.
-2. Призначити двох рев’юверів.
-3. Додати Actions secret з назвою `MY_SUPER_SECRET_KEY`.
-4. Увімкнути branch protection для `main`.
-5. Запушити гілку `feature-cicd-pipeline` (виправлення стилю Pint) і відкрити PR.
-6. Підставити свій шлях у бейдж CI у цьому README.
-7. Завести 3 Issues і розкласти їх на Kanban.
-8. У комітах і PR вказати `Fixes #N` або `Resolves #N`, щоб задача закривалась після merge.
-
-Три задачі для Issues, у формі user story. Definition of Done стоїть під кожною.
+Задачі:
 
 ### 1. Каркас репозиторію
 
