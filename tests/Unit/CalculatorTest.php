@@ -11,14 +11,14 @@ class CalculatorTest extends TestCase
 {
     public function test_add(): void
     {
-        $calculator = new Calculator();
+        $calculator = new Calculator;
 
         $this->assertSame(5, $calculator->add(2, 3));
     }
 
     public function test_subtract(): void
     {
-        $calculator = new Calculator();
+        $calculator = new Calculator;
 
         $this->assertSame(1, $calculator->subtract(3, 2));
     }
